@@ -6,16 +6,17 @@ import javax.persistence.EntityNotFoundException;
 
 import com.eqs.iris.DTO.VacationDTO;
 import com.eqs.iris.entitites.Vacation;
-import com.eqs.repositories.VacationRepository;
+import com.eqs.iris.repositories.VacationRepository;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class VacationService {
 
-    
+    @Autowired
     private VacationRepository repository;
 
     @Transactional(readOnly = true)

@@ -6,7 +6,8 @@ import javax.persistence.EntityNotFoundException;
 
 import com.eqs.iris.DTO.EmployeeDTO;
 import com.eqs.iris.entitites.Employee;
-import com.eqs.repositories.EmployeeRepository;
+import com.eqs.iris.repositories.EmployeeRepository;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,8 +16,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class EmployeeService {
 
-    @Autowired
-    private EmployeeRepository repository;
+	@Autowired
+	private EmployeeRepository repository;
 
 	@Transactional(readOnly = true)
 	public EmployeeDTO findById(Long id) throws Exception {

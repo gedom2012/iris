@@ -1,4 +1,4 @@
-package com.eqs.repositories;
+package com.eqs.iris.repositories;
 
 import com.eqs.iris.entitites.Vacation;
 

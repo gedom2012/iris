@@ -14,11 +14,7 @@ public class VacationDTO implements Serializable {
     private Instant endDate;
     private Employee employee;
 
-    public VacationDTO(Long id, Instant startDate, Instant endDate, Employee employee) {
-        this.id = id;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.employee = employee;
+    public VacationDTO() {
     }
 
     public VacationDTO(Vacation entity){

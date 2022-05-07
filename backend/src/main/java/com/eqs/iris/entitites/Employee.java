@@ -7,7 +7,7 @@ import java.time.Instant;
 import java.util.*;
 
 @Entity
-@Table(name = "tb.employee")
+@Table(name = "tb_employee")
 public class Employee implements Serializable {
 
     @Id

@@ -15,14 +15,7 @@ public class EmployeeDTO implements Serializable {
     private Instant admissionDate;
     private String email;
 
-    public EmployeeDTO(Long id, String name, int totalVacationDays, Instant birthDate, Instant admissionDate,
-            String email) {
-        this.id = id;
-        this.name = name;
-        this.totalVacationDays = totalVacationDays;
-        this.birthDate = birthDate;
-        this.admissionDate = admissionDate;
-        this.email = email;
+    public EmployeeDTO() {
     }
 
     public EmployeeDTO(Employee entity)

@@ -19,8 +19,8 @@ public class EmployeeController {
 
     @GetMapping(value = "/{id}")
 	public ResponseEntity<EmployeeDTO> findById(@PathVariable Long id) throws Exception {
-		EmployeeDTO ProductDTO = service.findById(id);
-		return ResponseEntity.ok().body(ProductDTO);
+		EmployeeDTO dto = service.findById(id);
+		return ResponseEntity.ok().body(dto);
 	}
     
 }
