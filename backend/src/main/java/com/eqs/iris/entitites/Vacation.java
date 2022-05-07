@@ -2,39 +2,32 @@ package com.eqs.iris.entitites;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "tb_vacation")
 public class Vacation implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Instant startDate;
-    private Instant endDate;
+    private Instant date;
+    private boolean isChecked;
 
-   @ManyToOne
-   @JoinColumn(name = "employee_id")
-   private Employee employee;
-
-    public Employee getEmployee() {
-        return employee;
-    }
+    @ManyToMany(mappedBy = "vacations")
+    Set<Employee> employees = new HashSet<>();
 
     public Vacation() {
     }
 
-    public Vacation(Instant startDate, Instant endDate, Employee employee) {
-        this.startDate = startDate;
-        this.employee = employee;
+    public Vacation(Long id, Instant date, boolean isChecked) {
+        this.id = id;
+        this.date = date;
+        this.isChecked = isChecked;
     }
 
     public Long getId() {
@@ -45,23 +38,27 @@ public class Vacation implements Serializable {
         this.id = id;
     }
 
-    public Instant getStartDate() {
-        return startDate;
+    public Instant getDate() {
+        return date;
     }
 
-    public void setStartDate(Instant startDate) {
-        this.startDate = startDate;
+    public void setDate(Instant date) {
+        this.date = date;
     }
 
-    public Instant getEndDate() {
-        return endDate;
+    public boolean isChecked() {
+        return isChecked;
     }
 
-    public void setEndDate(Instant endDate) {
-        this.endDate = endDate;
+    public void setChecked(boolean checked) {
+        isChecked = checked;
     }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
+    public Set<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(Set<Employee> employees) {
+        this.employees = employees;
     }
 }

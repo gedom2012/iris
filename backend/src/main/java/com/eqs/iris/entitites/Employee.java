@@ -9,6 +9,7 @@ import java.util.*;
 @Entity
 @Table(name = "tb_employee")
 public class Employee implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,11 +21,13 @@ public class Employee implements Serializable {
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant admissionDate;
 
-    
+
     private String email;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "vacation_id", referencedColumnName = "id")
+    @ManyToMany
+    @JoinTable(name = "tb_employee_vacation",
+            joinColumns = @JoinColumn(name = "employee_id"),
+            inverseJoinColumns = @JoinColumn(name = "vacation_id"))
     Set<Vacation> vacations = new HashSet<>();
 
     public Employee() {

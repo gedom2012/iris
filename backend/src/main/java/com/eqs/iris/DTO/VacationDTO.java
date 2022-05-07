@@ -2,6 +2,8 @@ package com.eqs.iris.DTO;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
 
 import com.eqs.iris.entitites.Employee;
 import com.eqs.iris.entitites.Vacation;
@@ -10,19 +12,19 @@ public class VacationDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private Long id;
-    private Instant startDate;
-    private Instant endDate;
-    private Employee employee;
+    private Instant date;
+    private boolean isChecked;
+
 
     public VacationDTO() {
     }
 
-    public VacationDTO(Vacation entity){
+    public VacationDTO(Vacation entity) {
         this.id = entity.getId();
-        this.startDate = entity.getStartDate();
-        this.endDate = entity.getEndDate();
-        this.employee = entity.getEmployee();
+        this.date = entity.getDate();
+        this.isChecked = entity.isChecked();
     }
+
 
     public Long getId() {
         return id;
@@ -32,32 +34,20 @@ public class VacationDTO implements Serializable {
         this.id = id;
     }
 
-    public Instant getStartDate() {
-        return startDate;
+    public Instant getDate() {
+        return date;
     }
 
-    public void setStartDate(Instant startDate) {
-        this.startDate = startDate;
+    public void setDate(Instant date) {
+        this.date = date;
     }
 
-    public Instant getEndDate() {
-        return endDate;
+    public boolean isChecked() {
+        return isChecked;
     }
 
-    public void setEndDate(Instant endDate) {
-        this.endDate = endDate;
+    public void setChecked(boolean checked) {
+        isChecked = checked;
     }
-
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
-
- 
-
-    
 
 }

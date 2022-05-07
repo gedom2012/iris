@@ -2,8 +2,11 @@ package com.eqs.iris.DTO;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
 
 import com.eqs.iris.entitites.Employee;
+import com.eqs.iris.entitites.Vacation;
 
 public class EmployeeDTO implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -14,6 +17,8 @@ public class EmployeeDTO implements Serializable {
     private Instant birthDate;
     private Instant admissionDate;
     private String email;
+
+    Set<VacationDTO> vacations = new HashSet<>();
 
     public EmployeeDTO() {
     }
@@ -26,6 +31,11 @@ public class EmployeeDTO implements Serializable {
         this.birthDate = entity.getBirthDate();
         this.admissionDate = entity.getAdmissionDate();
         this.email = entity.getEmail();
+    }
+
+    public EmployeeDTO(Employee entity, Set<Vacation> vacations){
+        this(entity);
+        vacations.forEach(x -> this.vacations.add(new VacationDTO(x)));
     }
 
     public Long getId() {
@@ -76,4 +86,11 @@ public class EmployeeDTO implements Serializable {
         this.email = email;
     }
 
+    public Set<VacationDTO> getVacations() {
+        return vacations;
+    }
+
+    public void setVacations(Set<VacationDTO> vacations) {
+        this.vacations = vacations;
+    }
 }

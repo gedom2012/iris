@@ -24,7 +24,7 @@ public class EmployeeService {
 		try {
 			Optional<Employee> obj = repository.findById(id);
 			Employee entity = obj.orElseThrow(() -> new EntityNotFoundException("Entity not found"));
-			return new EmployeeDTO(entity);
+			return new EmployeeDTO(entity, entity.getVacations());
 		}catch(EntityNotFoundException e) {
 			throw new EntityNotFoundException("Id not found " + id);
 		}
