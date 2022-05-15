@@ -23,8 +23,7 @@ public class EmployeeDTO implements Serializable {
     public EmployeeDTO() {
     }
 
-    public EmployeeDTO(Employee entity)
-    {
+    public EmployeeDTO(Employee entity) {
         this.id = entity.getId();
         this.name = entity.getName();
         this.totalVacationDays = entity.getTotalVacationDays();
@@ -33,7 +32,7 @@ public class EmployeeDTO implements Serializable {
         this.email = entity.getEmail();
     }
 
-    public EmployeeDTO(Employee entity, Set<Vacation> vacations){
+    public EmployeeDTO(Employee entity, Set<Vacation> vacations) {
         this(entity);
         vacations.forEach(x -> this.vacations.add(new VacationDTO(x)));
     }

@@ -15,7 +15,6 @@ public class VacationDTO implements Serializable {
     private Instant date;
     private boolean isChecked;
 
-
     public VacationDTO() {
     }
 
@@ -24,7 +23,6 @@ public class VacationDTO implements Serializable {
         this.date = entity.getDate();
         this.isChecked = entity.isChecked();
     }
-
 
     public Long getId() {
         return id;
